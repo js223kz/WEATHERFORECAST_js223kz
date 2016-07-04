@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dv409_js223kz_weatherModelStoreContainer" CdmEntityContainer="WeatherEntities">
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="dv409_js223kz_weatherModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Lon" ColumnName="Lon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forecasts">
+      <EntityTypeMapping TypeName="dv409_js223kz_weatherModel.Forecast">
+        <MappingFragment StoreEntitySet="Forecast">
+          <ScalarProperty Name="ChanceOfSunshine" ColumnName="ChanceOfSunshine" />
+          <ScalarProperty Name="WeatherIcon" ColumnName="WeatherIcon" />
+          <ScalarProperty Name="WeatherDesc" ColumnName="WeatherDesc" />
+          <ScalarProperty Name="FeelsLikeC" ColumnName="FeelsLikeC" />
+          <ScalarProperty Name="TempC" ColumnName="TempC" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,28 @@
+﻿@model Weather.Application.ViewModels.LocationViewModel
+
+@{
+    if (Model.Locations != null)
+    {
+        <div class="resultlistwrapper col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+            <table class="searchresulttable">
+               
+                    @foreach (var location in Model.Locations)
+                    {
+                        <tr class="col-sm-12 col-md-12 col-lg-12">
+                            <td class="col-sm-10 col-md-10 col-lg-10">
+                                <p>@location.Country | @location.Name</p>
+                            </td>
+                            <td class="col-sm-2 col-md-2 col-lg-2">
+                                <button type="button" class="submitlocation btn btn-primary btn-xs"
+                                        onclick="location.href='@Url.Action("LocationWeatherDetails",
+                                        "Forecast", new { identifier = @location.Identifier, name = @location.Name })'">
+                                    Get forecast
+                                </button>
+                            </td>
+                        </tr>
+                }  
+            </table>
+        </div>
+    }
+}
+

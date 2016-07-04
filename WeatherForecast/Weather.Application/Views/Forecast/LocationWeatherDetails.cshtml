@@ -1,0 +1,50 @@
+﻿@model Weather.Application.ViewModels.LocationViewModel
+
+<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    <h3 class="locationname">Weather forecast for @Model.Name</h3>
+    <button type="button" class="submitlocation btn btn-primary btn-xs"
+            onclick="location.href='@Url.Action("BackToSearch",
+                                        "Forecast")'">
+        Back to search
+    </button>
+</div>
+<div class="weatherdetailswrapper col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    <table class="weatherdetailstable col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+        @{
+            if (Model != null)
+            {
+                var days = Model.GetDay();
+                foreach (var day in days)
+                {
+                    <thead class="tablehead">
+                        <tr class="tablerow">
+                            <td>@day.DayName</td>
+                            <td>Forecast</td>
+                            <td>Temperature</td>
+                            <td>Feels like</td>
+                            <td>Description</td>
+                            <td>Chances of sunshine</td>
+                        </tr>
+                    </thead>
+
+                    foreach (var forecast in Model.Forecasts)
+                    {
+                        if (day.Date == forecast.Date)
+                        {
+                            <tbody>
+                                <tr>
+                                    <td class="tablecol">@Model.GetHour(forecast.Period)</td>
+                                    <td class="tablecol"><img src="@forecast.WeatherIcon" alt="Weather icon" /></td>
+                                    <td class="tablecol">@forecast.TempC&deg;</td>
+                                    <td class="tablecol">@forecast.FeelsLikeC&deg;</td>
+                                    <td class="tablecol">@forecast.WeatherDesc</td>
+                                    <td class="tablecol">@forecast.ChanceOfSunshine&#37;</td>
+                                </tr>
+                            </tbody>
+                        }
+                    }
+                }
+            }
+        }
+    </table>
+</div>

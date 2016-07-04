@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Weather Forecast</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/jqueryui")
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <div class="wrapper col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+        <nav>
+            <div class="logo col-sm-12 col-sm-offset-0 col-md-6 col-md-offset-6 col-lg-6 col-lg-offset-6">
+                @Html.ActionLink("weather forecast", "Index", "Forecast", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </nav>
+            
+        <main>
+            @RenderBody()
+        </main>
+    </div>  
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

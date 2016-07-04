@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dv409_js223kz_weatherModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WeatherEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Forecasts" EntityType="dv409_js223kz_weatherModel.Forecast" />
+    <EntitySet Name="Locations" EntityType="dv409_js223kz_weatherModel.Location" />
+  </EntityContainer>
+  <EntityType Name="Forecast">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Period" Type="Int32" Nullable="false" />
+    <Property Name="TempC" Type="Int32" Nullable="false" />
+    <Property Name="FeelsLikeC" Type="Int32" Nullable="false" />
+    <Property Name="WeatherDesc" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="WeatherIcon" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ChanceOfSunshine" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identifier" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Lat" Type="Double" Nullable="false" />
+    <Property Name="Lon" Type="Double" Nullable="false" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dv409_js223kz_weatherModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Forecast">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Period" Type="int" Nullable="false" />
+    <Property Name="TempC" Type="int" Nullable="false" />
+    <Property Name="FeelsLikeC" Type="int" Nullable="false" />
+    <Property Name="WeatherDesc" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="WeatherIcon" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ChanceOfSunshine" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Lat" Type="float" Nullable="false" />
+    <Property Name="Lon" Type="float" Nullable="false" />
+    <Property Name="Country" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="dv409_js223kz_weatherModelStoreContainer">
+    <EntitySet Name="Forecast" EntityType="Self.Forecast" Schema="appSchema" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="appSchema" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
